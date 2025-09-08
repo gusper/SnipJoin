@@ -3,6 +3,8 @@
 A Windows WPF application that removes segments from screenshots/images and joins the remaining parts together. Makes it easy
 to remove unwanted sections from screenshots and save them to a file or to the clipboard.
 
+![SnipJoin Demo](snipjoin-0.1.gif)
+
 ## Features
 
 - **Load images** from clipboard or files
