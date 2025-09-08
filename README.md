@@ -1,6 +1,7 @@
 # SnipJoin
 
-A Windows WPF application that removes segments from screenshots and joins the remaining parts together, similar to the feature in Snagit.
+A Windows WPF application that removes segments from screenshots/images and joins the remaining parts together. Makes it easy
+to remove unwanted sections from screenshots and save them to a file or to the clipboard.
 
 ## Features
 
