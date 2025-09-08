@@ -1,0 +1,92 @@
+<Window x:Class="SnipJoin.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SnipJoin - Screenshot Segment Removal Tool" 
+        Height="700" Width="1000"
+        MinHeight="500" MinWidth="600"
+        WindowStartupLocation="CenterScreen">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <!-- Toolbar -->
+        <ToolBar Grid.Row="0" Background="#F5F5F5" Height="50">
+            <Button Name="LoadFromClipboardBtn" 
+                    Content="From Clipboard" 
+                    Style="{StaticResource ButtonStyle}"
+                    Click="LoadFromClipboard_Click"/>
+            <Button Name="LoadFromFileBtn" 
+                    Content="Open File" 
+                    Style="{StaticResource ButtonStyle}"
+                    Click="LoadFromFile_Click"/>
+            <Separator/>
+            <Button Name="HorizontalModeBtn" 
+                    Content="Horizontal Cut" 
+                    Style="{StaticResource ButtonStyle}"
+                    Click="SetHorizontalMode_Click"/>
+            <Button Name="VerticalModeBtn" 
+                    Content="Vertical Cut" 
+                    Style="{StaticResource ButtonStyle}"
+                    Click="SetVerticalMode_Click"/>
+            <Separator/>
+            <Button Name="ClearSelectionBtn" 
+                    Content="Clear" 
+                    Style="{StaticResource ButtonStyle}"
+                    Click="ClearSelection_Click"/>
+            <Button Name="ProcessBtn" 
+                    Content="Cut &amp; Join" 
+                    Style="{StaticResource ButtonStyle}"
+                    Click="ProcessImage_Click"
+                    IsEnabled="False"/>
+            <Separator/>
+            <Button Name="SaveToClipboardBtn" 
+                    Content="To Clipboard" 
+                    Style="{StaticResource ButtonStyle}"
+                    Click="SaveToClipboard_Click"
+                    IsEnabled="False"/>
+            <Button Name="SaveToFileBtn" 
+                    Content="Save File" 
+                    Style="{StaticResource ButtonStyle}"
+                    Click="SaveToFile_Click"
+                    IsEnabled="False"/>
+        </ToolBar>
+        
+        <!-- Main Canvas Area -->
+        <ScrollViewer Grid.Row="1" 
+                      Name="ImageScrollViewer"
+                      HorizontalScrollBarVisibility="Auto"
+                      VerticalScrollBarVisibility="Auto"
+                      Background="#EEEEEE">
+            <Grid Name="CanvasContainer">
+                <Image Name="MainImage" 
+                       Stretch="None"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+                <Canvas Name="SelectionCanvas" 
+                        Background="Transparent"
+                        MouseLeftButtonDown="SelectionCanvas_MouseDown"
+                        MouseMove="SelectionCanvas_MouseMove"
+                        MouseLeftButtonUp="SelectionCanvas_MouseUp"/>
+            </Grid>
+        </ScrollViewer>
+        
+        <!-- Status Bar -->
+        <StatusBar Grid.Row="2" Background="#F5F5F5">
+            <StatusBarItem>
+                <TextBlock Name="StatusText" Text="Load an image from clipboard or file to begin"/>
+            </StatusBarItem>
+            <Separator/>
+            <StatusBarItem>
+                <TextBlock Name="ImageInfoText" Text=""/>
+            </StatusBarItem>
+            <Separator/>
+            <StatusBarItem>
+                <TextBlock Name="SelectionInfoText" Text=""/>
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+</Window>
